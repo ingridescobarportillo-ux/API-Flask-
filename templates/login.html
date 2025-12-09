@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+    <div class="cajaLogin">
+        <h1 class="titLogin">Acceso</h1>
+        <p class="txtLogin">Introduzca sus credenciales</p>
+
+        {% if message %}
+            <h3 class="sbTitLogin">{{ message }}</h3>
+        {% endif %}
+
+        <form method="post" action="/login" class="fmLogin">
+
+            <div>
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username"/>
+            </div>
+
+            <div>
+                <label for="password">Clave:</label>
+                <input type="password" id="password" name="password"/>
+            </div>
+
+            <!-- CAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="6LfhqiMsAAAAANX1daowki34x--8s5pWB3N_-MEd"></div>
+
+            <input class="sendBtn" type="submit" value="Acceder"/>
+        </form>
+    </div>
+
+    <!-- Script de reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</body>
+</html>
